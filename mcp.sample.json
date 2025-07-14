@@ -1,0 +1,117 @@
+{
+	"mcpServers": {
+	  "playwright": {
+		"command": "npx @playwright/mcp@latest",
+		"env": {}
+	  },
+	  "brave-search": {
+		"command": "docker",
+		"args": ["run", "-i", "--rm", "-e", "BRAVE_API_KEY", "mcp/brave-search"],
+		"env": {
+		  "BRAVE_API_KEY": "your-brave-api-key"
+		}
+	  },
+	  "fetch": {
+		"command": "docker",
+		"args": ["run", "-i", "--rm", "mcp/fetch"]
+	  },
+	  "sequentialthinking": {
+		"command": "docker",
+		"args": ["run", "--rm", "-i", "mcp/sequentialthinking"]
+	  },
+	  "awslabs.aws-documentation-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.aws-documentation-mcp-server@latest"],
+		"env": {
+		  "FASTMCP_LOG_LEVEL": "ERROR",
+		  "AWS_DOCUMENTATION_PARTITION": "aws"
+		},
+		"disabled": false,
+		"autoApprove": []
+	  },
+	  "awslabs.cloudwatch-mcp-server": {
+		"autoApprove": [],
+		"disabled": false,
+		"command": "uvx",
+		"args": ["awslabs.cloudwatch-mcp-server@latest"],
+		"env": {
+		  "AWS_PROFILE": "default",
+		  "AWS_REGION": "ap-northeast-1",
+		  "FASTMCP_LOG_LEVEL": "ERROR"
+		},
+		"transportType": "stdio"
+	  },
+	  "awslabs.cost-explorer-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.cost-explorer-mcp-server@latest"],
+		"env": {
+		  "FASTMCP_LOG_LEVEL": "ERROR",
+		  "AWS_PROFILE": "default",
+		  "AWS_REGION": "ap-northeast-1"
+		},
+		"disabled": false,
+		"autoApprove": []
+	  },
+	  "awslabs.iam-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.iam-mcp-server@latest"],
+		"env": {
+		  "AWS_PROFILE": "default",
+		  "AWS_REGION": "ap-northeast-1",
+		  "FASTMCP_LOG_LEVEL": "ERROR"
+		}
+	  },
+	  "awslabs.redshift-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.redshift-mcp-server@latest"],
+		"env": {
+		  "AWS_PROFILE": "default",
+		  "AWS_REGION": "ap-northeast-1",
+		  "FASTMCP_LOG_LEVEL": "INFO"
+		},
+		"disabled": false,
+		"autoApprove": []
+	  },
+	  "awslabs.ecs-mcp-server": {
+		"command": "uvx",
+		"args": ["--from", "awslabs-ecs-mcp-server", "ecs-mcp-server"],
+		"env": {
+		  "AWS_PROFILE": "default",
+		  "AWS_REGION": "ap-northeast-1",
+		  "FASTMCP_LOG_LEVEL": "ERROR",
+		  "FASTMCP_LOG_FILE": "/tmp/ecs-mcp-server.log",
+		  "ALLOW_WRITE": "false",
+		  "ALLOW_SENSITIVE_DATA": "false"
+		}
+	  },
+	  "awslabs.cdk-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.cdk-mcp-server@latest"],
+		"env": {
+		  "FASTMCP_LOG_LEVEL": "ERROR"
+		},
+		"disabled": false,
+		"autoApprove": []
+	  },
+	  "github": {
+		"command": "npx",
+		"args": ["-y", "@modelcontextprotocol/server-github"],
+		"env": {
+		  "GITHUB_PERSONAL_ACCESS_TOKEN": "[your-github-token]"
+		},
+		"disabled": true,
+		"autoApprove": []
+	  },
+	  "awslabs.git-repo-research-mcp-server": {
+		"command": "uvx",
+		"args": ["awslabs.git-repo-research-mcp-server@latest"],
+		"env": {
+		  "GITHUB_TOKEN": "[your-github-token]",
+		  "FASTMCP_LOG_LEVEL": "ERROR"
+		},
+		"disabled": true,
+		"autoApprove": []
+	  }
+	}
+  }
+  
