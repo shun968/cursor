@@ -93,15 +93,15 @@
 		"disabled": false,
 		"autoApprove": []
 	  },
-	  "github": {
-		"command": "npx",
-		"args": ["-y", "@modelcontextprotocol/server-github"],
-		"env": {
-		  "GITHUB_PERSONAL_ACCESS_TOKEN": "[your-github-token]"
-		},
-		"disabled": true,
-		"autoApprove": []
-	  },
+	    "github": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-github"],
+    "env": {
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "[your-github-token]"
+    },
+    "disabled": false,
+    "autoApprove": []
+  },
 	  "awslabs.git-repo-research-mcp-server": {
 		"command": "uvx",
 		"args": ["awslabs.git-repo-research-mcp-server@latest"],
